@@ -1,0 +1,11 @@
+{
+    "DESIGN_NAME": "uart_apb_wrapper",
+    "VERILOG_FILES": "dir::*.v",
+    "CLOCK_PORT": "PCLK",
+    "CLOCK_PERIOD": 10.0,
+    "DIE_AREA": "0 0 500 500",
+    "FP_CORE_UTIL": 40,
+    "SYNTH_STRATEGY": "DELAY 0",
+    "VDD_NETS": ["vccd1"],
+    "GND_NETS": ["vssd1"]
+}

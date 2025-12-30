@@ -1,0 +1,10 @@
+==========================================================
+Sky130 ASIC Resource Utilization
+==========================================================
+- Total Cell Count: 5,648 (including physical cells)
+- Logic Cell Count (Post-ABC): 1,569
+- Sequential Cells (DFF): 22
+- Combinational Cells: 1,547 (MUX, AND, OR, etc.)
+- Core Utilization: 40%
+- Peak Memory Usage: 623.74 MB
+==========================================================

@@ -1,0 +1,8 @@
+==========================================================
+iCE40-HX8K Timing Analysis Report
+==========================================================
+- Max frequency (clk): 85.30 MHz (PASS at 12.00 MHz)
+- Max delay (async -> clk): 8.07 ns
+- Max delay (clk -> async): 9.15 ns
+- Status: Timing Met
+==========================================================

@@ -1,0 +1,210 @@
+
+===========================================================================
+report_checks -unconstrained
+===========================================================================
+======================= Typical Corner ===================================
+
+Startpoint: PADDR[1] (input port clocked by PCLK)
+Endpoint: PRDATA[7] (output port clocked by PCLK)
+Path Group: PCLK
+Path Type: max
+
+Fanout     Cap    Slew   Delay    Time   Description
+-----------------------------------------------------------------------------
+                          0.00    0.00   clock PCLK (rise edge)
+                          0.00    0.00   clock network delay (propagated)
+                          2.00    2.00 v input external delay
+                  0.01    0.00    2.00 v PADDR[1] (in)
+     1    0.00                           PADDR[1] (net)
+                  0.01    0.00    2.00 v input2/A (sky130_fd_sc_hd__clkbuf_2)
+                  0.10    0.16    2.16 v input2/X (sky130_fd_sc_hd__clkbuf_2)
+     2    0.03                           net2 (net)
+                  0.10    0.00    2.16 v _1214_/A (sky130_fd_sc_hd__nor4_1)
+                  0.38    0.44    2.60 ^ _1214_/Y (sky130_fd_sc_hd__nor4_1)
+     1    0.01                           _0955_ (net)
+                  0.38    0.00    2.60 ^ wire3/A (sky130_fd_sc_hd__dlymetal6s2s_1)
+                  0.19    0.28    2.87 ^ wire3/X (sky130_fd_sc_hd__dlymetal6s2s_1)
+     3    0.02                           net377 (net)
+                  0.19    0.00    2.88 ^ max_cap41/A (sky130_fd_sc_hd__clkbuf_2)
+                  0.16    0.24    3.12 ^ max_cap41/X (sky130_fd_sc_hd__clkbuf_2)
+     5    0.03                           net41 (net)
+                  0.16    0.00    3.12 ^ max_cap40/A (sky130_fd_sc_hd__clkbuf_2)
+                  0.16    0.24    3.36 ^ max_cap40/X (sky130_fd_sc_hd__clkbuf_2)
+     4    0.03                           net40 (net)
+                  0.16    0.00    3.36 ^ _1295_/B1 (sky130_fd_sc_hd__o211a_1)
+                  0.15    0.27    3.62 ^ _1295_/X (sky130_fd_sc_hd__o211a_1)
+     1    0.02                           net25 (net)
+                  0.15    0.00    3.62 ^ output25/A (sky130_fd_sc_hd__clkbuf_4)
+                  0.11    0.23    3.86 ^ output25/X (sky130_fd_sc_hd__clkbuf_4)
+     1    0.03                           PRDATA[7] (net)
+                  0.11    0.00    3.86 ^ PRDATA[7] (out)
+                                  3.86   data arrival time
+
+                         10.00   10.00   clock PCLK (rise edge)
+                          0.00   10.00   clock network delay (propagated)
+                         -0.25    9.75   clock uncertainty
+                          0.00    9.75   clock reconvergence pessimism
+                         -2.00    7.75   output external delay
+                                  7.75   data required time
+-----------------------------------------------------------------------------
+                                  7.75   data required time
+                                 -3.86   data arrival time
+-----------------------------------------------------------------------------
+                                  3.89   slack (MET)
+
+
+
+
+===========================================================================
+report_checks --slack_max -0.01
+============================================================================
+======================= Typical Corner ===================================
+
+No paths found.
+
+
+===========================================================================
+ report_check_types -max_slew -max_cap -max_fanout -violators
+============================================================================
+======================= Typical Corner ===================================
+
+max fanout
+
+Pin                                   Limit Fanout  Slack
+---------------------------------------------------------
+clkbuf_leaf_34_PCLK/X                    10     15     -5 (VIOLATED)
+clkbuf_leaf_26_PCLK/X                    10     14     -4 (VIOLATED)
+clkbuf_leaf_29_PCLK/X                    10     14     -4 (VIOLATED)
+clkbuf_leaf_31_PCLK/X                    10     14     -4 (VIOLATED)
+clkbuf_leaf_36_PCLK/X                    10     14     -4 (VIOLATED)
+clkbuf_leaf_0_PCLK/X                     10     13     -3 (VIOLATED)
+clkbuf_leaf_4_PCLK/X                     10     13     -3 (VIOLATED)
+clkbuf_leaf_2_PCLK/X                     10     12     -2 (VIOLATED)
+clkbuf_leaf_30_PCLK/X                    10     12     -2 (VIOLATED)
+clkbuf_leaf_13_PCLK/X                    10     11        (VIOLATED)
+clkbuf_leaf_22_PCLK/X                    10     11        (VIOLATED)
+clkbuf_leaf_23_PCLK/X                    10     11        (VIOLATED)
+clkbuf_leaf_9_PCLK/X                     10     11        (VIOLATED)
+
+
+
+===========================================================================
+report_parasitic_annotation -report_unannotated
+============================================================================
+Found 78 unannotated drivers.
+ PADDR[10]
+ PADDR[11]
+ PADDR[12]
+ PADDR[13]
+ PADDR[14]
+ PADDR[15]
+ PADDR[16]
+ PADDR[17]
+ PADDR[18]
+ PADDR[19]
+ PADDR[20]
+ PADDR[21]
+ PADDR[22]
+ PADDR[23]
+ PADDR[24]
+ PADDR[25]
+ PADDR[26]
+ PADDR[27]
+ PADDR[28]
+ PADDR[29]
+ PADDR[30]
+ PADDR[31]
+ PADDR[4]
+ PADDR[5]
+ PADDR[6]
+ PADDR[7]
+ PADDR[8]
+ PADDR[9]
+ PWDATA[10]
+ PWDATA[11]
+ PWDATA[12]
+ PWDATA[13]
+ PWDATA[14]
+ PWDATA[15]
+ PWDATA[16]
+ PWDATA[17]
+ PWDATA[18]
+ PWDATA[19]
+ PWDATA[20]
+ PWDATA[21]
+ PWDATA[22]
+ PWDATA[23]
+ PWDATA[24]
+ PWDATA[25]
+ PWDATA[26]
+ PWDATA[27]
+ PWDATA[28]
+ PWDATA[29]
+ PWDATA[30]
+ PWDATA[31]
+ PWDATA[8]
+ PWDATA[9]
+ uart_apb_wrapper_42/HI
+ uart_apb_wrapper_43/HI
+ uart_apb_wrapper_44/HI
+ uart_apb_wrapper_45/HI
+ uart_apb_wrapper_46/HI
+ uart_apb_wrapper_47/HI
+ uart_apb_wrapper_48/HI
+ uart_apb_wrapper_49/HI
+ uart_apb_wrapper_50/HI
+ uart_apb_wrapper_51/HI
+ uart_apb_wrapper_52/HI
+ uart_apb_wrapper_53/HI
+ uart_apb_wrapper_54/HI
+ uart_apb_wrapper_55/HI
+ uart_apb_wrapper_56/HI
+ uart_apb_wrapper_57/HI
+ uart_apb_wrapper_58/HI
+ uart_apb_wrapper_59/HI
+ uart_apb_wrapper_60/HI
+ uart_apb_wrapper_61/HI
+ uart_apb_wrapper_62/HI
+ uart_apb_wrapper_63/HI
+ uart_apb_wrapper_64/HI
+ uart_apb_wrapper_65/HI
+ uart_apb_wrapper_66/HI
+ uart_apb_wrapper_67/LO
+Found 0 partially unannotated drivers.
+
+===========================================================================
+max slew violation count 0
+max fanout violation count 13
+max cap violation count 0
+============================================================================
+
+===========================================================================
+check_setup -verbose -unconstrained_endpoints -multiple_clock -no_clock -no_input_delay -loops -generated_clocks
+===========================================================================
+Warning: There are 26 unconstrained endpoints.
+  PRDATA[10]
+  PRDATA[11]
+  PRDATA[12]
+  PRDATA[13]
+  PRDATA[14]
+  PRDATA[15]
+  PRDATA[16]
+  PRDATA[17]
+  PRDATA[18]
+  PRDATA[19]
+  PRDATA[20]
+  PRDATA[21]
+  PRDATA[22]
+  PRDATA[23]
+  PRDATA[24]
+  PRDATA[25]
+  PRDATA[26]
+  PRDATA[27]
+  PRDATA[28]
+  PRDATA[29]
+  PRDATA[30]
+  PRDATA[31]
+  PRDATA[8]
+  PRDATA[9]
+  PREADY
+  PSLVERR
