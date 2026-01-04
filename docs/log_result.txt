@@ -1,0 +1,52 @@
+minhtu@minhtu-tpx1c:~/UART_APB_Sky130_Project$ ./uart_gls_sim
+Compiling VVP ...
+ ... VVP file version 12.0 (stable)
+Compile cleanup...
+ ... Linking
+ ... Removing symbol tables
+ ... Compiletf functions
+ ...    11284 functors (net_fun pool=524288 bytes)
+               9529 logic
+                 13 bufif
+                  0 resolv
+                 13 signals
+ ...    10601 filters (net_fil pool=1310720 bytes)
+ ...      123 opcodes (24576 bytes)
+ ...    16853 nets
+ ...    11284 vvp_nets (1048544 bytes)
+ ...        0 arrays (0 words)
+ ...        0 memories
+                  0 logic (0 words)
+                  0 real (0 words)
+ ...     5975 scopes
+ ... 0.081962 seconds, 25764.0/18116.0/5284.0 KBytes size/rss/shared
+Running ...
+ ...execute EndOfCompile callbacks
+ ...propagate initialization events
+ ...execute StartOfSim callbacks
+ ...run scheduler
+VCD info: dumpfile wave_apb.vcd opened for output.
+
+--- TEST 1: CPU Gửi ký tự 'A' (0x41) ---
+
+--- TEST 2: Thiết bị ngoài gửi ký tự 'B' (0x42) ---
+
+--- TEST 3: CPU Đọc trạng thái (Addr 0x04) ---
+CPU Read Addr: 0x00000004 | Data: 0x00000003
+
+--- TEST 4: CPU Đọc dữ liệu (Addr 0x00) ---
+CPU Read Addr: 0x00000000 | Data: 0x00000042
+./verification/tb_uart_apb.v:125: $finish called at 189075000 (1ps)
+ ...execute Postsim callbacks
+ ... 0.99646 seconds, 25764.0/18440.0/5540.0 KBytes size/rss/shared
+Event counts:
+       51030 time steps (pool=113)
+       37850 thread schedule events
+       28061 assign events
+             ...assign(vec4) pool=28086
+             ...assign(vec8) pool=3876
+             ...assign(real) pool=256
+             ...assign(word) pool=128
+             ...assign(word/r) pool=204
+     3847460 other events (pool=4096)
+

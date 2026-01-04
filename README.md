@@ -33,6 +33,27 @@ The design successfully passed all physical verification and timing sign-off sta
 - `/fpga`: iCE40 placement, routing, and timing reports.
 - `/docs`: Detailed sign-off reports (Power, Timing, Area, DRC, LVS, Antenna).
 
+## Post-Layout Verification (Gate-Level Simulation)
+The following waveforms verify the UART-APB IP core using the physical gate-level netlist and Sky130 standard cell timing models.
+
+### 1. CPU Write Transaction (Test 1)
+![UART Write GLS](docs/uart_gls_write.png)
+* **Description**: CPU writes character 'A' (0x41) via the APB bus.
+* **Observation**: The `PWDATA` shows `0x41`, and the `uart_tx` pin correctly initiates the start bit after the internal FIFO process.
+
+### 2. Full Simulation Overview (All Tests)
+![UART All Wave](docs/uart_gls_all.png)
+* **Description**: Macro view of all test cases (Write 'A', Receive 'B', Status Read, and Data Read).
+* **Observation**: Continuous operation shows stable clocking and successful data loopback between TX and RX.
+
+### 3. CPU Read Transaction (Test 2)
+![UART Read GLS](docs/uart_gls_read.png)
+* **Description**: CPU reads the received character 'B' (0x42) from the RX FIFO.
+* **Observation**: The `PRDATA` bus correctly outputs `0x00000042`, matching the character sent to the `uart_rx` pin.
+
+### Conclusion
+The GLS results match the RTL functional simulation, confirming that the design is timing-clean and ready for silicon fabrication.
+
 ## Tools Used
 - **Synthesis:** Yosys
 - **Place & Route:** OpenROAD / nextpnr-ice40
